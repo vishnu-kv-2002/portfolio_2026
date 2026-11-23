@@ -164,6 +164,10 @@ button {
   transition:
     border-color 0.2s,
     background 0.2s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .theme-btn:hover,
@@ -1174,6 +1178,13 @@ footer {
     gap: 10px;
   }
 
+  /* ADD THIS BLOCK HERE */
+  .theme-btn {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    min-width: 80px; /* Stops the button from changing width when text changes */
+  }
+
   .nav-links {
     display: none;
     position: absolute;
@@ -1377,11 +1388,6 @@ footer {
 
   .skill-card {
     min-height: 150px;
-  }
-
-  .theme-btn {
-    padding: 9px 12px;
-    font-size: 0.75rem;
   }
 
   .contact-detail {
