@@ -355,7 +355,7 @@
                   Python Turtle Graphics
                 </div>
                 <div class="dropdown-item" data-value="python-automation">
-                  Python-Automation
+                  Python Automation
                 </div>
                 <div class="dropdown-item" data-value="python-analysis">
                   Python Analysis
@@ -372,6 +372,9 @@
                 </div>
                 <div class="dropdown-item" data-value="python-flask">
                   Python Flask
+                </div>
+                <div class="dropdown-item" data-value="bootstrap">
+                  Bootstrap
                 </div>
                 <!-- <div class="dropdown-item" data-value="python">Python</div> -->
                 <div class="dropdown-item" data-value="web">
@@ -652,7 +655,10 @@
             </article>
 
             <!-- PROJECT 11: -->
-            <article class="project-card" data-category="python-analysis">
+            <article
+              class="project-card"
+              data-category="python-analysis python-turtle"
+            >
               <div
                 class="project-art"
                 style="background-image: url(&quot;./python_img.jpg&quot;)"
@@ -1108,7 +1114,10 @@
             </article>
 
             <!-- PROJECT 28: -->
-            <article class="project-card" data-category="python-selenium">
+            <article
+              class="project-card"
+              data-category="python-selenium python-automation"
+            >
               <div
                 class="project-art"
                 style="background-image: url(&quot;./python_img.jpg&quot;)"
@@ -1134,7 +1143,10 @@
             </article>
 
             <!-- PROJECT 29: -->
-            <article class="project-card" data-category="python-selenium">
+            <article
+              class="project-card"
+              data-category="python-selenium python-automation"
+            >
               <div
                 class="project-art"
                 style="background-image: url(&quot;./python_img.jpg&quot;)"
@@ -1160,7 +1172,10 @@
             </article>
 
             <!-- PROJECT 30: -->
-            <article class="project-card" data-category="python-selenium">
+            <article
+              class="project-card"
+              data-category="python-selenium python-automation"
+            >
               <div
                 class="project-art"
                 style="background-image: url(&quot;./python_img.jpg&quot;)"
@@ -1186,7 +1201,10 @@
             </article>
 
             <!-- PROJECT 31: -->
-            <article class="project-card" data-category="python-webscrap">
+            <article
+              class="project-card"
+              data-category="python-webscrap python-selenium"
+            >
               <div
                 class="project-art"
                 style="background-image: url(&quot;./python_img.jpg&quot;)"
@@ -1240,7 +1258,10 @@
             </article>
 
             <!-- PROJECT 33: -->
-            <article class="project-card" data-category="python-flask">
+            <article
+              class="project-card"
+              data-category="python-flask bootstrap"
+            >
               <div
                 class="project-art"
                 style="background-image: url(&quot;./python_img.jpg&quot;)"
@@ -1265,7 +1286,10 @@
             </article>
 
             <!-- PROJECT 34: -->
-            <article class="project-card" data-category="python-flask">
+            <article
+              class="project-card"
+              data-category="python-flask bootstrap"
+            >
               <div
                 class="project-art"
                 style="background-image: url(&quot;./python_img.jpg&quot;)"
@@ -1311,6 +1335,36 @@
                 <a
                   class="project-link"
                   href="https://github.com/vishnu-kv-2002/Sales-Dashboard-Data.git"
+                  target="_blank"
+                  >View GitHub repository ↗</a
+                >
+              </div>
+            </article>
+
+            <!-- PROJECT 36: -->
+            <article
+              class="project-card"
+              data-category="python-flask bootstrap"
+            >
+              <div
+                class="project-art"
+                style="background-image: url(./python_img.jpg)"
+              >
+                <span>PYTHON-FLASK-BOOTSTRAP</span>
+              </div>
+              <div class="project-content">
+                <span class="project-number">PROJECT 36</span>
+                <h3>🔐 Secret Vault – Flask Login Authentication System</h3>
+                <p>
+                  A simple and responsive login authentication web application
+                  built using Python, Flask, Flask-WTF, and Bootstrap 5. Users
+                  can enter their email and password to access a protected page.
+                  The application validates form inputs and displays success or
+                  access-denied pages based on the entered credentials.
+                </p>
+                <a
+                  class="project-link"
+                  href="https://github.com/vishnu-kv-2002/Secret-Vault-Flask-Login-Authentication-System.git"
                   target="_blank"
                   >View GitHub repository ↗</a
                 >
@@ -1535,27 +1589,7 @@
 
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const filterDropdown = document.getElementById("tool-filter");
-        const projectCards = document.querySelectorAll(".project-card");
 
-        filterDropdown.addEventListener("change", (e) => {
-          const selectedCategory = e.target.value;
-          projectCards.forEach((card) => {
-            const cardCategory = card.getAttribute("data-category");
-            if (
-              selectedCategory === "all" ||
-              selectedCategory === cardCategory
-            ) {
-              card.classList.remove("hidden");
-            } else {
-              card.classList.add("hidden");
-            }
-          });
-        });
-      });
-    </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const dropdown = document.getElementById("custom-dropdown");
@@ -1603,8 +1637,9 @@
         // 4. The actual filtering logic
         function filterProjects(category) {
           projectCards.forEach((card) => {
-            const cardCategory = card.getAttribute("data-category");
-            if (category === "all" || category === cardCategory) {
+            const cardCategory = card.getAttribute("data-category") || "";
+            const categories = cardCategory.trim().split(/\s+/);
+            if (category === "all" || categories.includes(category)) {
               card.classList.remove("hidden");
             } else {
               card.classList.add("hidden");
